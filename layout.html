@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>layout</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px 40px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .box {
+            background-color: #e0e0e0;
+            border: 2px solid #ccc;
+            padding: 20px;
+            margin: 10px 0;
+            text-align: center;
+        }
+
+        .row {
+            display: flex;
+            gap: 10px;
+        }
+
+        .col {
+            flex: 1;
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="box">Logo</div>
+        <div class="box">Navigation</div>
+        <div class="box">Header / Banner</div>
+
+        <div class="row">
+            <div class="col box">Side-bar</div>
+            <div class="col box" style="flex:2;">Body Area</div>
+        </div>
+
+        <div class="box">Footer</div>
+    </div>
+
+
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col box">Logo Navigation
+                </div>
+            </div>
+
+            <div class="row" style="flex-wrap: wrap;">
+                <!-- 12 small boxes -->
+                <div class="box" style="width: 15%;">Item</div>
+                <div class="box" style="width: 15%;">Item</div>
+                <div class="box" style="width: 15%;">Item</div>
+                <div class="box" style="width: 15%;">Item</div>
+
+                <div class="box" style="width: 15%;">Item</div>
+                <div class="box" style="width: 15%;">Item</div>
+                <div class="box" style="width: 15%;">Item</div>
+                <div class="box" style="width: 15%;">Item</div>
+
+                <div class="box" style="width: 15%;">Item</div>
+                <div class="box" style="width: 15%;">Item</div>
+                <div class="box" style="width: 15%;">Item</div>
+                <div class="box" style="width: 15%;">Item</div>
+
+                <div class="box" style="width: 15%;">Item</div>
+                <div class="box" style="width: 15%;">Item</div>
+                <div class="box" style="width: 15%;">Item</div>
+                <div class="box" style="width: 15%;">Item</div>
+            </div>
+
+            <div class="row">
+                <div class="col box">Box 1</div>
+                <div class="col box">Box 2</div>
+                <div class="col box">Box 3</div>
+
+            </div>
+
+            <div class="box">Footer</div>
+        </div>
+    </body>

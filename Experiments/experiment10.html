@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Responsive E-commerce Navbar</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Navbar container */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #210fe9;
+            padding: 10px 20px;
+            color: white;
+        }
+
+        /* Logo */
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        /* Navbar links */
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        /* Hamburger icon */
+        .menu-icon {
+            display: none;
+            font-size: 28px;
+            cursor: pointer;
+        }
+
+        /* Mobile menu (hidden) */
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            background: #333;
+            padding: 10px;
+        }
+
+        .mobile-menu a {
+            color: white;
+            padding: 10px;
+            text-decoration: none;
+            border-bottom: 1px solid #5c24eb;
+        }
+
+        /**************** MEDIA QUERY ****************/
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                /* hide desktop menu */
+            }
+
+            .menu-icon {
+                display: block;
+                /* show hamburger */
+            }
+
+            /* When active, show mobile menu */
+            .mobile-menu.show {
+                display: flex;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="navbar">
+        <div class="logo">ShopCart</div>
+
+        <!-- Desktop Links -->
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#">Products</a>
+            <a href="#">Offers</a>
+            <a href="#">Contact</a>
+        </div>
+
+        <!-- Mobile Hamburger -->
+        <div class="menu-icon" onclick="toggleMenu()">☰</div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="mobile-menu">
+        <a href="#">Home</a>
+        <a href="#">Products</a>
+        <a href="#">Offers</a>
+        <a href="#">Contact</a>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById("mobileMenu").classList.toggle("show");
+        }
+    </script>
+
+</body>
+
+</html>

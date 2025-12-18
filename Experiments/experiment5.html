@@ -130,26 +130,13 @@
         <h1>Student Registration</h1>
         <p class="lead">Fill the form and press Register. Fields marked with * are required.</p>
 
-        <!--
-      Important attributes demonstrated:
-      - method: POST (form submission method)
-      - action: where the form will be submitted (example URL)
-      - placeholder: helps the user understand expected input
-      - required: native HTML5 required validation
-    -->
+
         <form id="regForm" method="POST" action="https://example.com/submit-registration" novalidate>
             <!-- Name -->
             <div>
                 <label for="Name">First name *</label>
                 <input id="Name" name="Name" type="text" placeholder="e.g. palak singh" required />
             </div>
-
-
-
-
-
-
-            <!-- Email with validation -->
             <div class="full">
                 <label for="email">Email address *</label>
                 <!-- type="email" + pattern for stronger validation -->
@@ -219,8 +206,8 @@
     </main>
 
     <script>
-        // Client-side validation to show friendly messages and to ensure password match.
-        (function () {
+
+        function validatePasswords() {
             const form = document.getElementById('regForm');
             const emailInput = document.getElementById('email');
             const emailError = document.getElementById('emailError');
@@ -232,63 +219,64 @@
             const confirmPassword = document.getElementById('confirmPassword');
             const pwdError = document.getElementById('pwdError');
 
-            // Utility: show / hide an error element
+
             function showError(el, message) {
                 el.textContent = message;
                 el.style.display = 'block';
             }
             function hideError(el) {
-                el.style.display = 'none';
-            }
 
-            // Validate email with the input's pattern (if present) or HTML5 validity
-            function validateEmail() {
-                if (!emailInput.checkValidity()) {
-                    showError(emailError, 'Please enter a valid email address (e.g. name@example.com).');
-                    return false;
+
+
+
+                function validateEmail() {
+                    if (!emailInput.checkValidity()) {
+                        showError(emailError, 'Please enter a valid email address (e.g. name@example.com).');
+                        return false;
+                    }
+                    hideError(emailError);
+                    return true;
                 }
-                hideError(emailError);
-                return true;
-            }
 
-            function validatePhone() {
-                if (!phoneInput.checkValidity()) {
-                    showError(phoneError, 'Please enter a valid phone number (7–15 digits, optional leading +).');
-                    return false;
+                function validatePhone() {
+                    if (!phoneInput.checkValidity()) {
+                        showError(phoneError, 'Please enter a valid phone number (7–15 digits, optional leading +).');
+                        return false;
+                    }
+                    hideError(phoneError);
+                    return true;
                 }
-                hideError(phoneError);
-                return true;
-            }
 
-            // Live validation feedback
-            emailInput.addEventListener('input', validateEmail);
-            phoneInput.addEventListener('input', validatePhone);
-            confirmPassword.addEventListener('input', validatePasswords);
-            password.addEventListener('input', validatePasswords);
+                // Live validation feedback
+                emailInput.addEventListener('input', validateEmail);
+                phoneInput.addEventListener('input', validatePhone);
+                confirmPassword.addEventListener('input', validatePasswords);
+                password.addEventListener('input', validatePasswords);
 
-            form.addEventListener('submit', function (e) {
-                // Use browser's built-in validation first
-                const formIsValid = form.checkValidity();
+                form.addEventListener('submit', function (e) {
+                    // Use browser's built-in validation first
+                    const formIsValid = form.checkValidity();
 
-                // Run our custom checks
-                const emailOk = validateEmail();
-                const phoneOk = validatePhone();
-                const pwOk = validatePasswords();
+                    // Run our custom checks
+                    const emailOk = validateEmail();
+                    const phoneOk = validatePhone();
+                    const pwOk = validatePasswords();
 
-                if (!formIsValid || !emailOk || !phoneOk || !pwOk) {
-                    // Prevent submission and show default browser errors as well
-                    e.preventDefault();
-                    e.stopPropagation();
+                    if (!formIsValid || !emailOk || !phoneOk || !pwOk) {
 
-                    // for browsers that don't visually show invalid fields, trigger :invalid styles
-                    form.reportValidity();
-                } else {
-                    // At this point the client-side validation passed.
-                    // The form will be submitted to the URL in action (method is POST).
-                    // NOTE: In a real application you must still validate everything on the server.
-                }
-            });
-        })();
+                        e.preventDefault();
+                        e.stopPropagation();
+
+
+                        form.reportValidity();
+                    } else {
+
+
+
+                    }
+                });
+            } el.style.display = 'none';
+        }
     </script>
 </body>
 
